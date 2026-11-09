@@ -8,6 +8,7 @@ public class Character {
     private int level;
     private int hitPoints;
     private int attackPower;
+    private int mana;
 
     // Constructor 1: karakter baru
     public Character(String name, CharacterType type, int level) {
@@ -42,6 +43,7 @@ public class Character {
     public int getLevel() { return level; }
     public int getHitPoints() { return hitPoints; }
     public int getAttackPower() { return attackPower; }
+    public int getMana() { return mana; }
 
     public void setId(int id) {
         this.id = id;
@@ -56,6 +58,17 @@ public class Character {
         this.attackPower = calculateBaseAttack();
     }
 
+    public void setMana(int mana) {
+        if (mana < 0) {
+            throw new IllegalArgumentException("Mana tidak boleh negatif");
+        }
+        this.mana = mana;
+    }
+
+    public boolean isAlive() {
+        return hitPoints > 0;
+    }
+
     @Override
     public String toString() {
         return "Character{id=" + id +
@@ -63,6 +76,7 @@ public class Character {
                ", type=" + type +
                ", level=" + level +
                ", hp=" + hitPoints +
-               ", atk=" + attackPower + '}';
+               ", atk=" + attackPower +
+               ", mana=" + mana + '}';
     }
 }
