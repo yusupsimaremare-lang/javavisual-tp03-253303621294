@@ -1,21 +1,23 @@
 # Character Manager — TP3 (Java Visual SIH-6406)
 Proyek ini adalah fondasi model class untuk aplikasi Character Manager berbasis Java 17. Berisi enum CharacterType dan class Character dengan dua constructor, validasi pada setter, serta fitur tambahan mana dan isAlive(). Class ini akan menjadi dasar GUI pada sprint berikutnya.
 ## Output Terminal
-![alt text](image.png)
+![Output terminal](docs/output.png)
 
 ## Struktur Folder
 ```text
-javavisual-tp03-253303621276/
-├── README.md
+javavisual-tp03-253303621294/
 ├── .gitignore
-├── screenshots/
-│   └── image.png
-└── CharacterManager/
-    └── src/
-        ├── Main.java
-        └── com/unpri/charactermanager/model/
-            ├── CharacterType.java
-            └── Character.java
+├── README.md
+├── docs/
+│   └── output.png
+└── src/
+    ├── Main.java
+    └── com/
+        └── unpri/
+            └── charactermanager/
+                └── model/
+                    ├── Character.java
+                    └── CharacterType.java
 ```
 
 ## Identitas
