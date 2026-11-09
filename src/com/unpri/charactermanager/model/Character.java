@@ -1,6 +1,10 @@
 package com.unpri.charactermanager.model;
 
+import java.util.Objects;
+
 public class Character {
+
+    private static int totalCharacterCreated = 0;
 
     private int id;
     private String name;
@@ -17,6 +21,7 @@ public class Character {
         this.level = level;
         this.hitPoints = calculateBaseHP();
         this.attackPower = calculateBaseAttack();
+        totalCharacterCreated++;
     }
 
     // Constructor 2: memuat dari database
@@ -27,6 +32,7 @@ public class Character {
         this.level = level;
         this.hitPoints = hitPoints;
         this.attackPower = attackPower;
+        totalCharacterCreated++;
     }
 
     private int calculateBaseHP() {
@@ -36,6 +42,8 @@ public class Character {
     private int calculateBaseAttack() {
         return 10 + (level * 5);
     }
+
+    public static int getTotalCharacterCreated() { return totalCharacterCreated; }
 
     public int getId() { return id; }
     public String getName() { return name; }
@@ -78,5 +86,18 @@ public class Character {
                ", hp=" + hitPoints +
                ", atk=" + attackPower +
                ", mana=" + mana + '}';
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (!(obj instanceof Character)) return false;
+        Character other = (Character) obj;
+        return this.name.equals(other.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
     }
 }
